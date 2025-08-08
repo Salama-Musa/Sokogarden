@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
+
 const Getproducts = () => {
 
   let navigate = useNavigate()
@@ -72,9 +73,6 @@ const[product_image, setProductImage] = useState("")
         {/* we will map our products here */}
         {filteredProducts.map ((product)  => (
 
-
-   
-
         <div className="col-md-3 card shadow mt-4">
           <img src={imagepath + product.product_photo} alt="" />
           <h3>{product.product_name}</h3>
@@ -82,7 +80,7 @@ const[product_image, setProductImage] = useState("")
           <b className="text-success"> Ksh. {product.product_cost}</b>
 
           <button className='btn btn-dark w-100 mb-2'>Add to Cart</button>
-          <button className='btn btn-outline-primary w-100 mb-2' onClick={()=>navigate("/makepayment")}>Purchase Now</button>
+          <button className='btn btn-outline-primary w-100 mb-2' onClick={()=>navigate("/makepayment", {state:{product}} )}>Purchase Now</button>
         </div>
 
 
